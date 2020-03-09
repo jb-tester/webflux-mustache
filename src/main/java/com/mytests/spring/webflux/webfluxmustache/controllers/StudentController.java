@@ -24,7 +24,7 @@ public class StudentController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("home_attr1", "home_attr1");
+        model.addAttribute("home_attr1", "test mustache support in webflux projects");
         return "home";
     }
 
