@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public class StudentReactiveRepo {
     
-    private static List<Student> list = new ArrayList<>();
+    private static final List<Student> list = new ArrayList<>();
     static {
          list.add(new Student("masha", "petrova", 18, Gender.FEMALE, 123));
          list.add(new Student("masha", "ivanova", 19, Gender.FEMALE, 223));
@@ -55,10 +55,22 @@ public class StudentReactiveRepo {
         }
         return Flux.fromIterable(rez);
     }
-    public Flux<Student> getAllStudentsInGroup(int gr){
+
+    public Flux<Student> getAllStudentsInGroup(int gr) {
         List<Student> rez = new ArrayList<>();
         for (Student student : list) {
-            if (student.getGroup()== gr){
+            if (student.getGroup() == gr) {
+                rez.add(student);
+            }
+        }
+        return Flux.fromIterable(rez);
+    }
+
+    public Flux<Student> getAllStudentsWithComplexGender() {
+        List<Student> rez = new ArrayList<>();
+        for (Student student : list) {
+            if (!(student.getGender().equals(Gender.FEMALE) || student.getGender().equals(Gender.MALE))) {
+
                 rez.add(student);
             }
         }
