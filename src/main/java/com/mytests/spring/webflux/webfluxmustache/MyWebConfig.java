@@ -7,8 +7,6 @@ import org.springframework.boot.web.reactive.result.view.MustacheViewResolver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.config.ViewResolverRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.result.view.ViewResolver;
@@ -19,8 +17,8 @@ import org.springframework.web.reactive.result.view.ViewResolver;
  * Project: webflux-freemarker-2
  * *******************************
  */
-@Configuration
-@EnableWebFlux
+//@Configuration
+//@EnableWebFlux
 public class MyWebConfig implements ApplicationContextAware, WebFluxConfigurer {
     ApplicationContext context;
 
